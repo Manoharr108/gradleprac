@@ -9,19 +9,19 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/Vinayak-Rajput/My-Maven-App'
+                git branch: 'main', url: 'https://github.com/Manoharr108/gradleprac.git'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'mvn clean package'  // Run Maven build
+                sh 'gradle build'  // Run Maven build
             }
         }
 
         stage('Test') {
             steps {
-                sh 'mvn test'  // Run unit tests
+                sh 'gradle test'  // Run unit tests
             }
         }
 
@@ -31,7 +31,7 @@ pipeline {
         stage('Run Application') {
             steps {
                 // Start the JAR application
-                sh 'java -jar target/MyMavenApp-1.0-SNAPSHOT.jar'
+                sh 'gradle run'
             }
         }
 
